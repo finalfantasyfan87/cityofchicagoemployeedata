@@ -1,98 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>SpringMVCFormJenDemo</groupId>
-    <artifactId>CityOfChicagoEmployeeData</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>CityOfChicagoEmployeeData</name>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com</groupId>
+    <artifactId>chicagoemployee</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>chicagoemployee</name>
+    <description>Chicago Employee</description>
 
-  <properties>
-    <failOnMissingWebXml>false</failOnMissingWebXml>
-    <spring-version>4.3.8.RELEASE</spring-version>
-    <jstl-version>1.2.1</jstl-version>
-    <jsp-taglib-version>1.1.2</jsp-taglib-version>
-    <javax-servlet-version>3.1.0</javax-servlet-version>
-    <javax-servlet-jsp-version>2.3.1</javax-servlet-jsp-version>
-    <maven-compiler-version>3.5.1</maven-compiler-version>
-    <wildfly-version>1.1.0.Alpha10</wildfly-version>
-    <wildfly-home>/Users/jenny/Documents/wildfly-10.0.0.Final</wildfly-home>
-  </properties>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
-  <dependencies>
-    <!-- Spring MVC Dependency -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>${spring-version}</version>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-    <!-- JSTL Dependency -->
-    <dependency>
-      <groupId>javax.servlet.jsp.jstl</groupId>
-      <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-      <version>${jstl-version}</version>
-    </dependency>
-    <dependency>
-      <groupId>taglibs</groupId>
-      <artifactId>standard</artifactId>
-      <version>${jsp-taglib-version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-    <!-- Servlet Dependency -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>${javax-servlet-version}</version>
-      <scope>provided</scope>
-    </dependency>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <appName>cityofchicagodata</appName>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>CityOfChicagoEmployeeData</finalName>
+    </build>
 
-    <!-- JSP Dependency -->
-    <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>javax.servlet.jsp-api</artifactId>
-      <version>${javax-servlet-jsp-version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>4.3.8.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>2.8.0</version>
-    </dependency>
-    <dependency>
-      <groupId>net.sf.dozer</groupId>
-      <artifactId>dozer</artifactId>
-      <version>5.5.1</version>
-    </dependency>
-      <dependency>
-          <groupId>com.fasterxml.jackson.core</groupId>
-          <artifactId>jackson-databind</artifactId>
-          <version>2.8.11.1 </version>
-      </dependency>
-    <dependency>
-      <groupId>com.socrata</groupId>
-      <artifactId>soda-api-java</artifactId>
-      <version>0.9.13</version>
-    </dependency>
-  </dependencies>
-
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.heroku.sdk</groupId>
-        <artifactId>heroku-maven-plugin</artifactId>
-        <version>2.0.2</version>
-        <configuration>
-          <appName>cityofchicagodata</appName>
-        </configuration>
-      </plugin>
-    </plugins>
-    <finalName>CityOfChicagoEmployeeData</finalName>
-  </build>
 </project>
