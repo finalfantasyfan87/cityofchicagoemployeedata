@@ -49,6 +49,7 @@
                 <version>2.0.2</version>
                 <configuration>
                     <appName>cityofchicagodata</appName>
+                    <jdkVersion>1.8</jdkVersion>
                 </configuration>
             </plugin>
         </plugins>
