@@ -1,11 +1,14 @@
 package com.chicagoemployee.controller;
 
 import com.chicagoemployee.model.EmployeeResponseDTO;
+import com.chicagoemployee.repositories.CityOfChicagoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Optional;
 import java.util.logging.Logger;
 
 /**
@@ -17,6 +20,9 @@ import java.util.logging.Logger;
 public class ChicagoOfChicagoEmployeeInformationController {
     Logger myLogger = Logger.getLogger(ChicagoOfChicagoEmployeeInformationController.class.getName());
     private static final String CHICAGO_EMPLOYEES_URL = "https://data.cityofchicago.org/resource/tt4n-kn4t.json";
+
+   @Autowired
+    CityOfChicagoRepository cityOfChicagoRepository;
 
     //get my employee data from an external api
     private EmployeeResponseDTO[] generateEmployeeResponse() {
@@ -30,14 +36,20 @@ public class ChicagoOfChicagoEmployeeInformationController {
     @GetMapping("/employees")
     public EmployeeResponseDTO[] getEmployees() {
         EmployeeResponseDTO[] chicagoEmployees = generateEmployeeResponse();
+         for (EmployeeResponseDTO chicagoEmployee : chicagoEmployees) {
+cityOfChicagoRepository.save(chicagoEmployee);
+        }
+
         myLogger.info(String.valueOf(chicagoEmployees[2].getAnnualSalary()));
         return chicagoEmployees;
     }
 
     //view a specific City of Chicago Employee
     @GetMapping("/employee/{id}")
-    public EmployeeResponseDTO getEmployee(@PathVariable("id") String id) {
-        return generateEmployeeResponse()[Integer.parseInt(id)];
+    public Optional<EmployeeResponseDTO> getEmployee(@PathVariable("id") String id) {
+
+        return cityOfChicagoRepository.findById(id);
     }
+
 
 }
