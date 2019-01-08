@@ -58,7 +58,7 @@ public class ChicagoOfChicagoEmployeeController {
 
     @GetMapping("/employees/containsName/{partialName}")
     public List<CityOfChicagoEmployee> getEmployeeByPartialName(@PathVariable("partialName") String partialName) {
-        return cityOfChicagoEmployeeService.findEmployeeByPartialName(partialName);
+        return cityOfChicagoEmployeeService.findEmployeeByPartialName(partialName.toUpperCase());
     }
 
     @GetMapping("/employee/name/{name}")
