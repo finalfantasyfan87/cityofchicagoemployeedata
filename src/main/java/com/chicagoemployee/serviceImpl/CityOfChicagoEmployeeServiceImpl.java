@@ -47,12 +47,12 @@ cityOfChicagoRepository.delete(employee);
     }
 
     @Override
-    public List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(String salary) {
-        return cityOfChicagoRepository.findByAnnualSalaryGreaterThanEqual(salary);
+    public List<CityOfChicagoEmployee> findAllByAnnualSalaryGreaterThan(Double salary) {
+        return cityOfChicagoRepository.findAllByAnnualSalaryGreaterThan(salary);
     }
 
     @Override
-    public List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(String salary) {
-        return cityOfChicagoRepository.findByAnnualSalaryIsLessThanEqual(salary);
+    public List<CityOfChicagoEmployee> findAllByAnnualSalaryLessThan(Double salary) {
+        return cityOfChicagoRepository.findAllByAnnualSalaryLessThan(salary);
     }
 }

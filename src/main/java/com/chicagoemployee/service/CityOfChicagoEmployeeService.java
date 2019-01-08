@@ -12,7 +12,7 @@ public interface CityOfChicagoEmployeeService {
      Optional<CityOfChicagoEmployee> findById(String id);
      Optional<CityOfChicagoEmployee> findEmployeeByName(String name);
      List<CityOfChicagoEmployee> findEmployeeByPartialName(String partialName);
-     List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(String partialSalary);
-    List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(String s);
+     List<CityOfChicagoEmployee> findAllByAnnualSalaryGreaterThan(Double salary);
+    List<CityOfChicagoEmployee> findAllByAnnualSalaryLessThan(Double salary);
 
 }

@@ -67,12 +67,12 @@ public class ChicagoOfChicagoEmployeeController {
     }
 
     @GetMapping("/employees/greaterThanSalary/{salary}")
-    public List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(@PathVariable("salary") String salary){
-        return cityOfChicagoEmployeeService.findByAnnualSalaryGreaterThanEqual(salary);
+    public List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(@PathVariable("salary") Double salary){
+        return cityOfChicagoEmployeeService.findAllByAnnualSalaryGreaterThan(salary);
     }
 
     @GetMapping("/employees/lessThanSalary/{salary}")
-    public List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(@PathVariable("salary") String salary){
-        return cityOfChicagoEmployeeService.findByAnnualSalaryIsLessThanEqual(salary);
+    public List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(@PathVariable("salary") Double salary){
+        return cityOfChicagoEmployeeService.findAllByAnnualSalaryLessThan(salary);
     }
 }

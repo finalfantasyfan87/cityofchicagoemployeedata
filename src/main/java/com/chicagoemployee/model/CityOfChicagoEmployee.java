@@ -11,7 +11,7 @@ public class CityOfChicagoEmployee implements Serializable {
 	String id;
 
 	@JsonProperty("job_titles")
-	private String jobTitles;
+	private String jobTitle;
 
 	@JsonProperty("full_or_part_time")
 	private String fullOrPartTime;
@@ -20,7 +20,7 @@ public class CityOfChicagoEmployee implements Serializable {
 	private String name;
 
 	@JsonProperty("annual_salary")
-	private String annualSalary;
+	private Double  annualSalary;
 
 	@JsonProperty("salary_or_hourly")
 	private String salaryOrHourly;
@@ -36,62 +36,62 @@ public class CityOfChicagoEmployee implements Serializable {
 		this.id = id;
 	}
 
-	public void setJobTitles(String jobTitles){
-		this.jobTitles = jobTitles;
+	public String getJobTitle() {
+		return jobTitle;
 	}
 
-	public String getJobTitles(){
-		return jobTitles;
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 
-	public void setFullOrPartTime(String fullOrPartTime){
-		this.fullOrPartTime = fullOrPartTime;
-	}
-
-	public String getFullOrPartTime(){
+	public String getFullOrPartTime() {
 		return fullOrPartTime;
 	}
 
-	public void setName(String name){
-		this.name = name;
+	public void setFullOrPartTime(String fullOrPartTime) {
+		this.fullOrPartTime = fullOrPartTime;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
-	public void setAnnualSalary(String annualSalary){
-		this.annualSalary = annualSalary;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getAnnualSalary(){
+	public Double getAnnualSalary() {
 		return annualSalary;
 	}
 
-	public void setSalaryOrHourly(String salaryOrHourly){
-		this.salaryOrHourly = salaryOrHourly;
+	public void setAnnualSalary(Double annualSalary) {
+		this.annualSalary = annualSalary;
 	}
 
-	public String getSalaryOrHourly(){
+	public String getSalaryOrHourly() {
 		return salaryOrHourly;
 	}
 
-	public void setDepartment(String department){
-		this.department = department;
+	public void setSalaryOrHourly(String salaryOrHourly) {
+		this.salaryOrHourly = salaryOrHourly;
 	}
 
-	public String getDepartment(){
+	public String getDepartment() {
 		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
 	@Override
 	public String toString() {
 		return "CityOfChicagoEmployee{" +
 				"id='" + id + '\'' +
-				", jobTitles='" + jobTitles + '\'' +
+				", jobTitle='" + jobTitle + '\'' +
 				", fullOrPartTime='" + fullOrPartTime + '\'' +
 				", name='" + name + '\'' +
-				", annualSalary='" + annualSalary + '\'' +
+				", annualSalary=" + annualSalary +
 				", salaryOrHourly='" + salaryOrHourly + '\'' +
 				", department='" + department + '\'' +
 				'}';

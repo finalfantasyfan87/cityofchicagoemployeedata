@@ -10,8 +10,7 @@ public interface CityOfChicagoRepository extends  MongoRepository<CityOfChicagoE
 
     Optional<CityOfChicagoEmployee> findByNameEquals(String s);
     List<CityOfChicagoEmployee> findByNameContains(String s);
-    List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(String s);
-
-    List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(String s);
+    List<CityOfChicagoEmployee> findAllByAnnualSalaryGreaterThan(Double s);
+    List<CityOfChicagoEmployee> findAllByAnnualSalaryLessThan(Double s);
 }
 
