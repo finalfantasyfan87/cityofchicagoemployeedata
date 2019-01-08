@@ -1,13 +1,16 @@
 package com.chicagoemployee.controller;
 
-import com.chicagoemployee.model.EmployeeResponseDTO;
+import com.chicagoemployee.model.CityOfChicagoEmployee;
 import com.chicagoemployee.repositories.CityOfChicagoRepository;
+import com.chicagoemployee.service.CityOfChicagoEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -22,33 +25,36 @@ public class ChicagoOfChicagoEmployeeInformationController {
     private static final String CHICAGO_EMPLOYEES_URL = "https://data.cityofchicago.org/resource/tt4n-kn4t.json";
 
    @Autowired
-    CityOfChicagoRepository cityOfChicagoRepository;
+   CityOfChicagoEmployeeService cityOfChicagoEmployeeService;
 
     //get my employee data from an external api
-    private EmployeeResponseDTO[] generateEmployeeResponse() {
+    private CityOfChicagoEmployee[] generateEmployeeResponse() {
         RestTemplate restTemplate = new RestTemplate();
-        // ObjectMapper mapper
-        EmployeeResponseDTO[] employeeResponse = restTemplate.getForObject(CHICAGO_EMPLOYEES_URL, EmployeeResponseDTO[].class);
+        CityOfChicagoEmployee[] employeeResponse = restTemplate.getForObject(CHICAGO_EMPLOYEES_URL, CityOfChicagoEmployee[].class);
         return employeeResponse;
     }
 
     //view all the City Of Chicago Employees
-    @GetMapping("/employees")
-    public EmployeeResponseDTO[] getEmployees() {
-        EmployeeResponseDTO[] chicagoEmployees = generateEmployeeResponse();
-         for (EmployeeResponseDTO chicagoEmployee : chicagoEmployees) {
-cityOfChicagoRepository.save(chicagoEmployee);
+    @PostMapping("/saveEmployees")
+    public String saveEmployees() {
+        CityOfChicagoEmployee[] chicagoEmployees = generateEmployeeResponse();
+         for (CityOfChicagoEmployee chicagoEmployee : chicagoEmployees) {
+             cityOfChicagoEmployeeService.save(chicagoEmployee);
         }
-
-        myLogger.info(String.valueOf(chicagoEmployees[2].getAnnualSalary()));
-        return chicagoEmployees;
+         return "Employees were saved to database";
     }
+
+
+    @GetMapping("/employees")
+    public List<CityOfChicagoEmployee> getEmployees(){
+        return cityOfChicagoEmployeeService.findAll();
+    }
+
 
     //view a specific City of Chicago Employee
     @GetMapping("/employee/{id}")
-    public Optional<EmployeeResponseDTO> getEmployee(@PathVariable("id") String id) {
-
-        return cityOfChicagoRepository.findById(id);
+    public Optional<CityOfChicagoEmployee> getEmployee(@PathVariable("id") String id) {
+        return cityOfChicagoEmployeeService.findById(id);
     }
 
 
