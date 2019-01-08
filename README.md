@@ -1,5 +1,7 @@
 # cityofchicagoemployeedata
-My API consumes Chicago of Chicago data. The API is deployed to the cloud via Heroku.
+My API consumes Chicago of Chicago data regarding real City Of Chicago employees. I save the data via my API to a MongoDB collection named: cityChicagoEmployees.his collection has 1000 records of the original dataset.
+I use Spring Data Mongo Repository to query my records. The API is deployed to the cloud via Heroku.
+
 Get All Employees:
 https://cityofchicagodata.herokuapp.com/employees
 
