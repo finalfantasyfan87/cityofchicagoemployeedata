@@ -6,8 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CityOfChicagoEmployeeService {
-    public void save(CityOfChicagoEmployee employee);
-    public void delete(CityOfChicagoEmployee employee);
+     void save(CityOfChicagoEmployee employee);
+     void delete(CityOfChicagoEmployee employee);
     List<CityOfChicagoEmployee> findAll();
-    public Optional<CityOfChicagoEmployee> findById(String id);
+     Optional<CityOfChicagoEmployee> findById(String id);
+     Optional<CityOfChicagoEmployee> findEmployeeByName(String name);
+     List<CityOfChicagoEmployee> findEmployeeByPartialName(String partialName);
+     List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(String partialSalary);
+    List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(String s);
+
 }

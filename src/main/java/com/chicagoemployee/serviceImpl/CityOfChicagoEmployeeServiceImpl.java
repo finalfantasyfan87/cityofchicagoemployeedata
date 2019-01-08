@@ -35,4 +35,24 @@ cityOfChicagoRepository.delete(employee);
     public Optional<CityOfChicagoEmployee> findById(String id) {
         return cityOfChicagoRepository.findById(id);
     }
+
+    @Override
+    public Optional<CityOfChicagoEmployee> findEmployeeByName(String name) {
+        return cityOfChicagoRepository.findByNameEquals(name);
+    }
+
+    @Override
+    public List<CityOfChicagoEmployee> findEmployeeByPartialName(String partialName) {
+        return cityOfChicagoRepository.findByNameContains(partialName);
+    }
+
+    @Override
+    public List<CityOfChicagoEmployee> findByAnnualSalaryGreaterThanEqual(String salary) {
+        return cityOfChicagoRepository.findByAnnualSalaryGreaterThanEqual(salary);
+    }
+
+    @Override
+    public List<CityOfChicagoEmployee> findByAnnualSalaryIsLessThanEqual(String salary) {
+        return cityOfChicagoRepository.findByAnnualSalaryIsLessThanEqual(salary);
+    }
 }
