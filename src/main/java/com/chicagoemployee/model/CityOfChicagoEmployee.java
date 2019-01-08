@@ -85,7 +85,6 @@ public class CityOfChicagoEmployee implements Serializable {
 	}
 
 	@Override
-			",name = '" + name + '\'' + 
 	public String toString() {
 		return "CityOfChicagoEmployee{" +
 				"id='" + id + '\'' +
