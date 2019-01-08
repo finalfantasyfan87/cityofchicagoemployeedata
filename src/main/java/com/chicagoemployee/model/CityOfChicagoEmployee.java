@@ -28,6 +28,14 @@ public class CityOfChicagoEmployee implements Serializable {
 	@JsonProperty("department")
 	private String department;
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void setJobTitles(String jobTitles){
 		this.jobTitles = jobTitles;
 	}
@@ -77,15 +85,16 @@ public class CityOfChicagoEmployee implements Serializable {
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"CityOfChicagoEmployee{" +
-			"job_titles = '" + jobTitles + '\'' + 
-			",full_or_part_time = '" + fullOrPartTime + '\'' + 
 			",name = '" + name + '\'' + 
-			",annual_salary = '" + annualSalary + '\'' + 
-			",salary_or_hourly = '" + salaryOrHourly + '\'' + 
-			",department = '" + department + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return "CityOfChicagoEmployee{" +
+				"id='" + id + '\'' +
+				", jobTitles='" + jobTitles + '\'' +
+				", fullOrPartTime='" + fullOrPartTime + '\'' +
+				", name='" + name + '\'' +
+				", annualSalary='" + annualSalary + '\'' +
+				", salaryOrHourly='" + salaryOrHourly + '\'' +
+				", department='" + department + '\'' +
+				'}';
+	}
 }
