@@ -37,7 +37,7 @@ https://cityofchicagodata.herokuapp.com/employee/5c3406843092152048bcb189
     "department": "HUMAN RELATIONS"
 }
 
-https://cityofchicagodata.herokuapp.com/employees/containsName/CHRIST
+https://cityofchicagodata.herokuapp.com/employees/containsName/SAMUEL
 https://cityofchicagodata.herokuapp.com/employees/greaterThanSalary/60000
 https://cityofchicagodata.herokuapp.com/employees/lessThanSalary/60000
-https://cityofchicagodata.herokuapp.com/employees/name/christopher
+
