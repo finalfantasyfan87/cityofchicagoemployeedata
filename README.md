@@ -41,4 +41,4 @@ https://cityofchicagodata.herokuapp.com/employees/containsName/SAMUEL
 https://cityofchicagodata.herokuapp.com/employees/greaterThanSalary/60000
 https://cityofchicagodata.herokuapp.com/employees/lessThanSalary/60000
 
-AS OF NOV 21, 1019: UPDATE..CURRENTLY WORKING ON MIGRATING MY APPLICATION INFASTRUCTURE 
+AS OF NOV 21, 1019: UPDATE..CURRENTLY WORKING ON MIGRATING MY NOSQL DB
